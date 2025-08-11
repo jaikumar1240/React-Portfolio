@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base layer overrides */
+@layer base {
+  :root { color-scheme: light; }
+  .dark { color-scheme: dark; }
+  html, body, #root {
+    height: 100%;
+  }
+  body { @apply bg-slate-50 text-slate-900 font-sans antialiased dark:bg-slate-950 dark:text-slate-100; }
+}
+
+/* Component layer */
+@layer components {
+  /* Smooth theme transition (apply temporarily on root) */
+  .theme-transition,
+  .theme-transition * {
+    transition-property: background-color, color, border-color, fill, stroke, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: ease;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .theme-transition,
+    .theme-transition * { transition: none !important; }
+  }
+  .container-pro {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .section {
+    @apply py-12 sm:py-16;
+  }
+  .section-title {
+    @apply text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white;
+  }
+  .section-subtitle {
+    @apply mt-3 max-w-2xl text-slate-600 dark:text-slate-400;
+  }
+  .card { @apply rounded-2xl bg-white/60 ring-1 ring-slate-900/10 shadow-soft dark:bg-slate-900/60 dark:ring-white/10; }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full bg-brand-500 hover:bg-brand-400 px-5 py-2.5 text-sm font-semibold text-white transition-colors;
+  }
+}

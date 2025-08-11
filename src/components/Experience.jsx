@@ -1,0 +1,82 @@
+import { useEffect } from 'react'
+import useRevealOnScroll from '../hooks/useRevealOnScroll'
+import { gsap } from '../lib/gsap'
+
+const experiences = [
+  {
+    role: 'Software Engineer',
+    company: 'Monotype',
+    location: 'Noida, India',
+    period: '05/2023 — Present',
+    points: [
+      'Developed the frontend of Monotype Foundry Platform, increasing user engagement by 40%.',
+      'Designed and executed unit tests with Mocha, Chai, and Karma; improved coverage from 60% to 87% in 3 months.',
+      'Led Agile ceremonies, resulting in a 15% boost in team productivity and delivery speed.',
+      'Streamlined defect tracking with JIRA and Confluence, reducing resolution time by 25%.',
+      'Integrated graphs, meters, and tables improving engagement by 25%.',
+      'Improved page speed by 35% via lazy-loading and performance optimizations.',
+    ],
+  },
+  {
+    role: 'Associate Software Engineer',
+    company: 'Pristyn Care',
+    location: 'Gurugram, India',
+    period: '09/2021 — 05/2023',
+    points: [
+      'Built Hospital, Medical, Insurance, and Clinic dashboards from scratch; increased operational efficiency by 30%.',
+      'Enhanced website speed by 25% through optimization and minification of assets.',
+      'Integrated forms, maps, and charts, increasing engagement by 20%.',
+      'Led API integrations with backend teams, cutting integration time by 35%.',
+      'Shipped responsive designs with Bootstrap and MUI, increasing mobile traffic by 25% and engagement by 30%.',
+    ],
+  },
+]
+
+export default function Experience() {
+  useRevealOnScroll('[data-exp]')
+  useEffect(() => {
+    const cards = gsap.utils.toArray('article[data-exp]')
+    cards.forEach((card, i) => {
+      gsap.from(card, {
+        opacity: 0,
+        x: i % 2 === 0 ? -24 : 24,
+        duration: 0.7,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: card, start: 'top 85%' },
+      })
+    })
+    gsap.from('#experience .title-underline', {
+      scaleX: 0,
+      duration: 0.8,
+      ease: 'power3.out',
+      transformOrigin: 'left center',
+      scrollTrigger: { trigger: '#experience', start: 'top 85%' },
+    })
+  }, [])
+  return (
+    <section id="experience" className="section">
+      <div className="container-pro">
+        <h2 className="section-title">Experience</h2>
+        <div className="title-underline h-1 w-20 bg-gradient-to-r from-brand-500 to-fuchsia-500 rounded-full mt-2" />
+        <p className="section-subtitle">A track record of shipping impactful products and leading frontend initiatives.</p>
+        <div className="mt-10 grid gap-6">
+          {experiences.map((exp) => (
+            <article key={exp.role} className="card p-6" data-exp>
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{exp.role} · <span className="text-brand-400">{exp.company}</span></h3>
+                <span className="text-sm text-slate-600 dark:text-slate-400">{exp.period}</span>
+              </div>
+              <ul className="mt-4 list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300">
+                {exp.points.map((p) => (
+                  <li key={p}>{p}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+
