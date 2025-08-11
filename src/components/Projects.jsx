@@ -7,24 +7,24 @@ const projects = [
     description:
       'Responsive web app to display real-time weather data with location-based forecasts. Built with JavaScript, HTML and CSS.',
     tags: ['JavaScript', 'HTML', 'CSS', 'API'],
-    demo: 'https://your-demo-weather.example',
     repo: 'https://github.com/jaikumar1240/RealTime-Weather',
+    image: 'src/assets/weather.jpg',
   },
   {
     title: 'Expense Tracker (React)',
     description:
       'Track expenses with a responsive UI and real-time updates, including charts for spending patterns.',
     tags: ['React', 'Chart.js', 'Vite'],
-    demo: 'https://your-demo-expense.example',
     repo: 'https://github.com/jaikumar1240/Expense-tracker-React',
+    image: 'src/assets/expense.jpg',
   },
   {
     title: 'Shopping App (Angular + Firebase)',
     description:
       'Angular app with Firebase for real-time data and auth, managing shopping lists and recipes.',
     tags: ['Angular', 'Firebase', 'RxJS'],
-    demo: 'https://your-demo-shopping.example',
     repo: 'https://github.com/jaikumar1240/Shopping-App',
+    image: 'src/assets/shopping.jpg',
   },
 ]
 
@@ -79,9 +79,19 @@ export default function Projects() {
               className="card group overflow-hidden p-0 will-change-transform bg-white/70 dark:bg-slate-900/60"
               data-project-card
             >
-              <div className="relative h-40 bg-gradient-to-br from-brand-600/40 to-fuchsia-600/40">
-                <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_20%_30%,rgba(255,255,255,.15),transparent),radial-gradient(40%_40%_at_80%_70%,rgba(0,0,0,.25),transparent)]" />
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/10" />
+              <div className="relative h-40 overflow-hidden">
+                {p.image ? (
+                  <img
+                    src={p.image}
+                    alt={`${p.title} preview`}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-600/40 to-fuchsia-600/40" />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/0 to-transparent" />
               </div>
               <div className="p-5">
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{p.title}</h3>
@@ -97,14 +107,6 @@ export default function Projects() {
                   ))}
                 </div>
                 <div className="mt-4 flex items-center gap-4">
-                  <a
-                    href={p.demo}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="text-sm text-brand-600 hover:text-brand-700 dark:text-brand-400 dark:hover:text-brand-300"
-                  >
-                    Live Demo
-                  </a>
                   <a
                     href={p.repo}
                     target="_blank"

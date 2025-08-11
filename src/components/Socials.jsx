@@ -21,7 +21,7 @@ const socials = [
   },
   {
     name: 'Instagram',
-    href: 'https://www.instagram.com/jaikumar1240',
+    href: 'https://www.instagram.com/_jairajput_',
     Icon: (props) => (
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
         <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3a5 5 0 1 0 .001 10.001A5 5 0 0 0 12 7zm0 2.5A2.5 2.5 0 1 1 12 14a2.5 2.5 0 0 1 0-5.5zM18 6.75a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5z" />

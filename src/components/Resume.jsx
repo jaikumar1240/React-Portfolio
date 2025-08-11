@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from '../lib/gsap'
+import resumePdf from '../assets/Resume_Jai_Frontend_2025.pdf'
 
 export default function Resume({ compact = false, className = '' }) {
   const btnRef = useRef(null)
@@ -35,8 +36,8 @@ export default function Resume({ compact = false, className = '' }) {
         <h2 className="section-title">Resume</h2>
         <p className="section-subtitle">Download a copy of my resume, or view it online.</p>
         <div className="mt-6 flex flex-wrap items-center gap-4" data-resume>
-          <a ref={btnRef} href="/assets/Resume_Jai_Frontend_2025.pdf" download className="btn-primary">Download PDF</a>
-          <a href="/assets/Resume_Jai_Frontend_2025.pdf" target="_blank" className="text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">View Online</a>
+          <a ref={btnRef} href={resumePdf} download className="btn-primary">Download PDF</a>
+          <a href={resumePdf} target="_blank" rel="noreferrer" className="text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">View Online</a>
         </div>
       </div>
     )
@@ -48,8 +49,8 @@ export default function Resume({ compact = false, className = '' }) {
         <h2 className="section-title">Resume</h2>
         <p className="section-subtitle">Download a copy of my resume, or view it online.</p>
         <div className="mt-8 flex flex-wrap items-center gap-4" data-resume>
-          <a ref={btnRef} href="/assets/Resume_Jai_Frontend_2025.pdf" download className="btn-primary">Download PDF</a>
-          <a href="/assets/Resume_Jai_Frontend_2025.pdf" target="_blank" className="text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">View Online</a>
+          <a ref={btnRef} href={resumePdf} download className="btn-primary">Download PDF</a>
+          <a href={resumePdf} target="_blank" rel="noreferrer" className="text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">View Online</a>
         </div>
       </div>
     </section>
