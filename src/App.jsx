@@ -25,7 +25,7 @@ export default function App() {
             <div className="grid gap-6 grid-rows-[1fr_auto] h-full">
               <Resume compact className="h-full" />
               <div className="card p-6">
-                <h3 className="text-white font-semibold mb-3">Find me online</h3>
+                <h3 className="text-slate-900 dark:text-white font-semibold mb-3">Find me online</h3>
                 <Socials compact />
               </div>
             </div>

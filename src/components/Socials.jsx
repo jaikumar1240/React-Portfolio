@@ -43,51 +43,63 @@ export default function Socials({ compact = false, className = '' }) {
   useEffect(() => {
   }, [])
 
+  const header = (
+    <>
+      <h2 className="section-title">Links</h2>
+      <p className="section-subtitle">Connect with me across the web.</p>
+    </>
+  )
+
+  const compactSocials = (
+    <div aria-label="Social links" className={`flex flex-wrap items-center gap-4 ${className}`}>
+      {socials.map((social) => (
+        <a
+          key={social.name}
+          href={social.href}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="h-10 w-10 grid place-items-center rounded-xl transition bg-slate-900/10 ring-1 ring-slate-900/10 hover:bg-slate-900/20 dark:bg-white/5 dark:ring-white/10 dark:hover:bg-white/10"
+          title={social.name}
+          data-social
+        >
+          <social.Icon className="h-5 w-5 text-slate-700 dark:text-white/80" />
+        </a>
+      ))}
+    </div>
+  )
+
+  const fullSocials = (
+    <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+      {socials.map((social) => (
+        <a
+          key={social.name}
+          href={social.href}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="card p-5 flex items-center gap-3 transition-colors group hover:bg-slate-900/5 dark:hover:bg-slate-900/80"
+          data-social
+        >
+          <div className="h-10 w-10 grid place-items-center rounded-xl bg-slate-900/10 ring-1 ring-slate-900/10 dark:bg-white/5 dark:ring-white/10">
+            <social.Icon className="h-5 w-5 text-slate-700 group-hover:text-slate-900 dark:text-white/80 dark:group-hover:text-white" />
+          </div>
+          <div>
+            <div className="font-semibold text-slate-900 dark:text-white">{social.name}</div>
+            <div className="text-sm text-slate-600 group-hover:text-slate-800 dark:text-slate-400 dark:group-hover:text-slate-300">{social.href.replace(/^https?:\/\//, '')}</div>
+          </div>
+        </a>
+      ))}
+    </div>
+  )
+
   if (compact) {
-    return (
-      <div aria-label="Social links" className={`flex flex-wrap items-center gap-4 ${className}`}>
-        {socials.map(({ name, href, Icon }) => (
-          <a
-            key={name}
-            href={href}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="h-10 w-10 grid place-items-center rounded-xl transition bg-slate-900/10 ring-1 ring-slate-900/10 hover:bg-slate-900/20 dark:bg-white/5 dark:ring-white/10 dark:hover:bg-white/10"
-            title={name}
-            data-social
-          >
-            <Icon className="h-5 w-5 text-slate-700 dark:text-white/80" />
-          </a>
-        ))}
-      </div>
-    )
+    return compactSocials
   }
 
   return (
     <section id="links" className="section">
       <div className="container-pro">
-        <h2 className="section-title">Links</h2>
-        <p className="section-subtitle">Connect with me across the web.</p>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {socials.map(({ name, href, Icon }) => (
-            <a
-              key={name}
-              href={href}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="card p-5 flex items-center gap-3 transition-colors group hover:bg-slate-900/5 dark:hover:bg-slate-900/80"
-              data-social
-            >
-              <div className="h-10 w-10 grid place-items-center rounded-xl bg-slate-900/10 ring-1 ring-slate-900/10 dark:bg-white/5 dark:ring-white/10">
-                <Icon className="h-5 w-5 text-slate-700 group-hover:text-slate-900 dark:text-white/80 dark:group-hover:text-white" />
-              </div>
-              <div>
-                <div className="font-semibold text-slate-900 dark:text-white">{name}</div>
-                <div className="text-sm text-slate-600 group-hover:text-slate-800 dark:text-slate-400 dark:group-hover:text-slate-300">{href.replace(/^https?:\/\//, '')}</div>
-              </div>
-            </a>
-          ))}
-        </div>
+        {header}
+        {fullSocials}
       </div>
     </section>
   )

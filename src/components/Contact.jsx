@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { gsap } from '../lib/gsap'
+import { gsap, ScrollTrigger, prefersReducedMotion } from '../lib/gsap'
 
 export default function Contact({ compact = false, className = '' }) {
   const formRef = useRef(null)
@@ -68,6 +68,39 @@ export default function Contact({ compact = false, className = '' }) {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      const cards = gsap.utils.toArray('[data-contact-card]')
+      ScrollTrigger.batch(cards, {
+        start: 'top 92%',
+        onEnter: (batch) =>
+          gsap.fromTo(
+            batch,
+            { opacity: 0, y: 26 },
+            { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', stagger: 0.08 },
+          ),
+        onLeaveBack: (batch) =>
+          gsap.to(batch, { opacity: 0, y: 26, duration: 0.4, ease: 'power2.inOut' }),
+      })
+
+      if (!prefersReducedMotion()) {
+        cards.forEach((el) => {
+          const onMove = (e) => {
+            const rect = el.getBoundingClientRect()
+            const relX = (e.clientX - rect.left) / rect.width
+            const relY = (e.clientY - rect.top) / rect.height
+            gsap.to(el, {
+              rotateY: (relX - 0.5) * 6,
+              rotateX: -(relY - 0.5) * 6,
+              transformPerspective: 800,
+              transformOrigin: 'center',
+              duration: 0.2,
+            })
+          }
+          const onLeave = () => gsap.to(el, { rotateX: 0, rotateY: 0, duration: 0.4 })
+          el.addEventListener('mousemove', onMove)
+          el.addEventListener('mouseleave', onLeave)
+        })
+      }
+
       gsap.fromTo(
         formRef.current,
         { y: 20, opacity: 0 },
@@ -77,51 +110,63 @@ export default function Contact({ compact = false, className = '' }) {
     return () => ctx.revert()
   }, [])
 
+  const header = (
+    <>
+      <h2 className="section-title">Contact</h2>
+      <p className="section-subtitle">Have a project in mind or just want to say hi? I'd love to hear from you.</p>
+    </>
+  )
+
+  const formClassName = compact ? 'mt-6 grid gap-2' : 'mt-8 grid gap-4 max-w-xl'
+
+  const formElement = (
+    <form
+      ref={formRef}
+      className={formClassName}
+      method="POST"
+      action={formAction}
+      onSubmit={handleSubmit}
+      noValidate
+    >
+      <input type="hidden" name="_subject" value="Portfolio contact from Jai Kumar" />
+      <input
+        name="name"
+        type="text"
+        placeholder="Your name"
+        required
+        className={`w-full rounded-xl bg-white border px-4 py-3 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-slate-900/60 dark:text-slate-100 dark:placeholder:text-slate-500 ${fieldErrors.name ? 'border-red-500 dark:border-red-400' : 'border-slate-300 dark:border-white/10'}`}
+      />
+      {fieldErrors.name && <p className="text-xs text-red-500">{fieldErrors.name}</p>}
+      <input
+        name="email"
+        type="email"
+        placeholder="Email address"
+        required
+        className={`w-full rounded-xl bg-white border px-4 py-3 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-slate-900/60 dark:text-slate-100 dark:placeholder:text-slate-500 ${fieldErrors.email ? 'border-red-500 dark:border-red-400' : 'border-slate-300 dark:border-white/10'}`}
+      />
+      {fieldErrors.email && <p className="text-xs text-red-500">{fieldErrors.email}</p>}
+      <textarea
+        name="message"
+        rows="5"
+        placeholder="Message"
+        required
+        className={`w-full rounded-xl bg-white border px-4 py-3 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-slate-900/60 dark:text-slate-100 dark:placeholder:text-slate-500 ${fieldErrors.message ? 'border-red-500 dark:border-red-400' : 'border-slate-300 dark:border-white/10'}`}
+      />
+      {fieldErrors.message && <p className="text-xs text-red-500">{fieldErrors.message}</p>}
+      <button type="submit" disabled={isSubmitting} className="btn-primary justify-center disabled:opacity-60">
+        {isSubmitting ? 'Sending...' : 'Send Message'}
+      </button>
+      {status && (
+        <p aria-live="polite" className="text-sm text-slate-700 dark:text-slate-300">{status}</p>
+      )}
+    </form>
+  )
+
   if (compact) {
     return (
-      <div id="contact" className={`card p-6 ${className}`}>
-        <h2 className="section-title">Contact</h2>
-        <p className="section-subtitle">Have a project in mind or just want to say hi? I’d love to hear from you.</p>
-        <form
-          ref={formRef}
-          className="mt-6 grid gap-2"
-          method="POST"
-          action={formAction}
-          onSubmit={handleSubmit}
-          noValidate
-        >
-          <input type="hidden" name="_subject" value="Portfolio contact from Jai Kumar" />
-          <input
-            name="name"
-            type="text"
-            placeholder="Your name"
-            required
-            className={`w-full rounded-xl bg-white border px-4 py-3 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-slate-900/60 dark:text-slate-100 dark:placeholder:text-slate-500 ${fieldErrors.name ? 'border-red-500 dark:border-red-400' : 'border-slate-300 dark:border-white/10'}`}
-          />
-          {fieldErrors.name && <p className="text-xs text-red-500">{fieldErrors.name}</p>}
-          <input
-            name="email"
-            type="email"
-            placeholder="Email address"
-            required
-            className={`w-full rounded-xl bg-white border px-4 py-3 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-slate-900/60 dark:text-slate-100 dark:placeholder:text-slate-500 ${fieldErrors.email ? 'border-red-500 dark:border-red-400' : 'border-slate-300 dark:border-white/10'}`}
-          />
-          {fieldErrors.email && <p className="text-xs text-red-500">{fieldErrors.email}</p>}
-          <textarea
-            name="message"
-            rows="5"
-            placeholder="Message"
-            required
-            className={`w-full rounded-xl bg-white border px-4 py-3 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-slate-900/60 dark:text-slate-100 dark:placeholder:text-slate-500 ${fieldErrors.message ? 'border-red-500 dark:border-red-400' : 'border-slate-300 dark:border-white/10'}`}
-          />
-          {fieldErrors.message && <p className="text-xs text-red-500">{fieldErrors.message}</p>}
-          <button type="submit" disabled={isSubmitting} className="btn-primary justify-center disabled:opacity-60">
-            {isSubmitting ? 'Sending...' : 'Send Message'}
-          </button>
-          {status && (
-            <p aria-live="polite" className="text-sm text-slate-700 dark:text-slate-300">{status}</p>
-          )}
-        </form>
+      <div id="contact" className={`card p-6 will-change-transform ${className}`} data-contact-card>
+        {header}
+        {formElement}
       </div>
     )
   }
@@ -129,48 +174,8 @@ export default function Contact({ compact = false, className = '' }) {
   return (
     <section id="contact" className="section">
       <div className="container-pro">
-        <h2 className="section-title">Contact</h2>
-        <p className="section-subtitle">Have a project in mind or just want to say hi? I’d love to hear from you.</p>
-        <form
-          ref={formRef}
-          className="mt-8 grid gap-4 max-w-xl"
-          method="POST"
-          action={formAction}
-          onSubmit={handleSubmit}
-          noValidate
-        >
-          <input type="hidden" name="_subject" value="Portfolio contact from Jai Kumar" />
-          <input
-            name="name"
-            type="text"
-            placeholder="Your name"
-            required
-            className={`w-full rounded-xl bg-white border px-4 py-3 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-slate-900/60 dark:text-slate-100 dark:placeholder:text-slate-500 ${fieldErrors.name ? 'border-red-500 dark:border-red-400' : 'border-slate-300 dark:border-white/10'}`}
-          />
-          {fieldErrors.name && <p className="text-xs text-red-500">{fieldErrors.name}</p>}
-          <input
-            name="email"
-            type="email"
-            placeholder="Email address"
-            required
-            className={`w-full rounded-xl bg-white border px-4 py-3 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-slate-900/60 dark:text-slate-100 dark:placeholder:text-slate-500 ${fieldErrors.email ? 'border-red-500 dark:border-red-400' : 'border-slate-300 dark:border-white/10'}`}
-          />
-          {fieldErrors.email && <p className="text-xs text-red-500">{fieldErrors.email}</p>}
-          <textarea
-            name="message"
-            rows="5"
-            placeholder="Message"
-            required
-            className={`w-full rounded-xl bg-white border px-4 py-3 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-slate-900/60 dark:text-slate-100 dark:placeholder:text-slate-500 ${fieldErrors.message ? 'border-red-500 dark:border-red-400' : 'border-slate-300 dark:border-white/10'}`}
-          />
-          {fieldErrors.message && <p className="text-xs text-red-500">{fieldErrors.message}</p>}
-          <button type="submit" disabled={isSubmitting} className="btn-primary justify-center disabled:opacity-60">
-            {isSubmitting ? 'Sending...' : 'Send Message'}
-          </button>
-          {status && (
-            <p aria-live="polite" className="text-sm text-slate-700 dark:text-slate-300">{status}</p>
-          )}
-        </form>
+        {header}
+        {formElement}
       </div>
     </section>
   )
