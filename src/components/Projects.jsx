@@ -1,5 +1,8 @@
 import { useEffect } from 'react'
 import { gsap, ScrollTrigger, prefersReducedMotion } from '../lib/gsap'
+import weatherImg from '../assets/weather.png'
+import expenseImg from '../assets/expense.png'
+import shoppingImg from '../assets/shopping.png'
 
 const projects = [
   {
@@ -8,7 +11,7 @@ const projects = [
       'Responsive web app to display real-time weather data with location-based forecasts. Built with JavaScript, HTML and CSS.',
     tags: ['JavaScript', 'HTML', 'CSS', 'API'],
     repo: 'https://github.com/jaikumar1240/RealTime-Weather',
-    image: 'src/assets/weather.jpg',
+    image: weatherImg,
   },
   {
     title: 'Expense Tracker (React)',
@@ -16,7 +19,7 @@ const projects = [
       'Track expenses with a responsive UI and real-time updates, including charts for spending patterns.',
     tags: ['React', 'Chart.js', 'Vite'],
     repo: 'https://github.com/jaikumar1240/Expense-tracker-React',
-    image: 'src/assets/expense.jpg',
+    image: expenseImg,
   },
   {
     title: 'Shopping App (Angular + Firebase)',
@@ -24,7 +27,7 @@ const projects = [
       'Angular app with Firebase for real-time data and auth, managing shopping lists and recipes.',
     tags: ['Angular', 'Firebase', 'RxJS'],
     repo: 'https://github.com/jaikumar1240/Shopping-App',
-    image: 'src/assets/shopping.jpg',
+    image: shoppingImg,
   },
 ]
 
@@ -84,7 +87,7 @@ export default function Projects() {
                   <img
                     src={p.image}
                     alt={`${p.title} preview`}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 select-none"
                     loading="lazy"
                     decoding="async"
                   />
