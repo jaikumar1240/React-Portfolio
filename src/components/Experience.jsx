@@ -1,5 +1,4 @@
-import { useEffect } from 'react'
-import { gsap, ScrollTrigger, prefersReducedMotion } from '../lib/gsap'
+import useRevealOnScroll from '../hooks/useRevealOnScroll'
 
 const experiences = [
   {
@@ -32,49 +31,12 @@ const experiences = [
 ]
 
 export default function Experience() {
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const cards = gsap.utils.toArray('[data-experience-card]')
-      ScrollTrigger.batch(cards, {
-        start: 'top 92%',
-        onEnter: (batch) =>
-          gsap.fromTo(
-            batch,
-            { opacity: 0, y: 26 },
-            { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', stagger: 0.08 },
-          ),
-        onLeaveBack: (batch) =>
-          gsap.to(batch, { opacity: 0, y: 26, duration: 0.4, ease: 'power2.inOut' }),
-      })
-
-      if (!prefersReducedMotion()) {
-        cards.forEach((el) => {
-          const onMove = (e) => {
-            const rect = el.getBoundingClientRect()
-            const relX = (e.clientX - rect.left) / rect.width
-            const relY = (e.clientY - rect.top) / rect.height
-            gsap.to(el, {
-              rotateY: (relX - 0.5) * 6,
-              rotateX: -(relY - 0.5) * 6,
-              transformPerspective: 800,
-              transformOrigin: 'center',
-              duration: 0.2,
-            })
-          }
-          const onLeave = () => gsap.to(el, { rotateX: 0, rotateY: 0, duration: 0.4 })
-          el.addEventListener('mousemove', onMove)
-          el.addEventListener('mouseleave', onLeave)
-        })
-      }
-    })
-    return () => ctx.revert()
-  }, [])
+  useRevealOnScroll('[data-experience-card]')
 
   return (
     <section id="experience" className="section">
       <div className="container-pro">
         <h2 className="section-title">Experience</h2>
-        <div className="title-underline h-1 w-20 bg-gradient-to-r from-brand-500 to-fuchsia-500 rounded-full mt-2" />
         <p className="section-subtitle">A track record of shipping impactful products and leading frontend initiatives.</p>
         <div className="mt-10 grid gap-6">
           {experiences.map((exp) => (

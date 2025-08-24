@@ -37,7 +37,7 @@
   .section-subtitle {
     @apply mt-3 max-w-2xl text-slate-600 dark:text-slate-400;
   }
-  .card { @apply rounded-2xl bg-white/60 ring-1 ring-slate-900/10 shadow-soft dark:bg-slate-900/60 dark:ring-white/10; }
+  .card { @apply rounded-2xl bg-white/60 shadow-soft dark:bg-slate-900/60 dark:ring-1 dark:ring-white/10; }
   .btn-primary {
     @apply inline-flex items-center gap-2 rounded-full bg-brand-500 hover:bg-brand-400 px-5 py-2.5 text-sm font-semibold text-white transition-colors;
   }
