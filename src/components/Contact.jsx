@@ -6,7 +6,8 @@ export default function Contact({ compact = false, className = '' }) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [status, setStatus] = useState('')
   const [fieldErrors, setFieldErrors] = useState({})
-  const formAction = `https://formspree.io/f/xdkdyvkd`
+  const recipientEmail = 'jaikumar1240@gmail.com'
+  const formAction = `https://formsubmit.co/ajax/${recipientEmail}`
 
   const validateClient = (formData) => {
     const errors = {}
@@ -129,6 +130,8 @@ export default function Contact({ compact = false, className = '' }) {
       noValidate
     >
       <input type="hidden" name="_subject" value="Portfolio contact from Jai Kumar" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
       <input
         name="name"
         type="text"

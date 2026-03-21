@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { gsap, ScrollTrigger, prefersReducedMotion } from '../lib/gsap'
-import resumePdf from '../assets/Resume_Jai_Frontend_2025.pdf'
+import resumePdf from '../assets/Resume_Jai_Frontend_2026.pdf'
 
 export default function Resume({ compact = false, className = '' }) {
   const btnRef = useRef(null)

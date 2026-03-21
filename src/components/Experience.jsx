@@ -3,10 +3,24 @@ import { gsap, ScrollTrigger, prefersReducedMotion } from '../lib/gsap'
 
 const experiences = [
   {
+    role: 'Senoir Software Engineer',
+    company: 'SalaryBox',
+    location: 'Gurgaon, India',
+    period: '11/2025 — Present',
+    points: [
+      'Led frontend enhancements for a payroll & HR SaaS platform used by hundreds of businesses.',
+      'Built a User Impersonation system, reducing support resolution time by 30%.',
+      'Implemented subscription billing flows (monthly & quarterly), increasing conversions by 15%.',
+      'Developed a Feature Request System, improving user engagement by 25% and aiding product prioritization.',
+      'Integrated Google reCAPTCHA, reducing bot traﬃc and fraudulent attempts by 40%.',
+      'Implemented GA4 & Meta Pixel tracking, enabling data-driven product and marketing decisions',
+    ],
+  },
+  {
     role: 'Software Engineer',
     company: 'Monotype',
     location: 'Noida, India',
-    period: '05/2023 — Present',
+    period: '05/2023 — 11/2025',
     points: [
       'Developed the frontend of Monotype Foundry Platform, increasing user engagement by 40%.',
       'Designed and executed unit tests with Mocha, Chai, and Karma; improved coverage from 60% to 87% in 3 months.',
