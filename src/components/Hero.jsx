@@ -61,11 +61,11 @@ export default function Hero() {
           <h1 data-hero className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             Jai Kumar
           </h1>
-          <p data-hero className="mt-2 text-brand-600 dark:text-brand-400 font-semibold">Software Engineer</p>
+          <p data-hero className="mt-2 text-brand-600 dark:text-brand-400 font-semibold">Senior Software Engineer</p>
           <p data-hero className="mt-4 text-lg text-slate-700 dark:text-slate-300 max-w-xl">
-            Software Engineer with 4 years of experience. Strong foundation in HTML, CSS and JavaScript with production
-            experience across React, Angular and Vue. I care about responsive design, performance, and building delightful
-            interfaces with smooth animations.
+          Senior software engineer with 5+ years of experience building scalable SaaS applications and driving measurable business impact.
+Expertise in modern JavaScript frameworks, performance optimization, and product-focused engineering. Proven track record of
+improving user engagement, conversion rates, and system performance.
           </p>
           <div data-hero className="mt-8 flex items-center gap-4">
             <a href="#contact" className="btn-primary">Contact Me</a>
