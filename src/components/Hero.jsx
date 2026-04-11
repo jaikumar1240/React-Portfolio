@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { gsap, prefersReducedMotion } from '../lib/gsap'
-import profileImg from '../assets/propic.png'
+import profileImg from '../assets/propic_new.jpg'
 
 export default function Hero() {
   const containerRef = useRef(null)
