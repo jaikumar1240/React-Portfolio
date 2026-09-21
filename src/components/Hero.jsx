@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap, prefersReducedMotion } from '../lib/gsap'
 import { scrollToTarget } from '../lib/smoothScroll'
-import profileImg from '../assets/propic_new.jpg'
+import profileImg from '../assets/propic_adobe.jpg'
 
 const ROLES = ['Senior Software Engineer', 'Full-Stack Engineer', 'React & Angular Dev', 'Electron & SaaS Builder']
 
