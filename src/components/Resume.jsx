@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { gsap, ScrollTrigger, prefersReducedMotion } from '../lib/gsap'
-import resumePdf from '../assets/Resume_Jai_Frontend_2026.pdf'
+import resumePdf from '../assets/Resume_Jai_Kumar_2026.pdf'
 
 export default function Resume({ compact = false, className = '' }) {
   const btnRef = useRef(null)
@@ -77,7 +77,8 @@ export default function Resume({ compact = false, className = '' }) {
   if (compact) {
     return (
       <div id="resume" className={`card p-6 will-change-transform ${className}`} data-resume-card>
-        {header}
+        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Resume</h3>
+        <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">Download a copy, or view it online.</p>
         {actions}
       </div>
     )

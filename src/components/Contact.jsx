@@ -168,7 +168,8 @@ export default function Contact({ compact = false, className = '' }) {
   if (compact) {
     return (
       <div id="contact" className={`card p-6 will-change-transform ${className}`} data-contact-card>
-        {header}
+        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Send a message</h3>
+        <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">I'll get back to you within a day or two.</p>
         {formElement}
       </div>
     )

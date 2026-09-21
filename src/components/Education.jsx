@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { gsap, ScrollTrigger, prefersReducedMotion } from '../lib/gsap'
+import SectionHeader from './SectionHeader.jsx'
 
 const education = [
   {
@@ -59,9 +60,8 @@ export default function Education() {
   return (
     <section id="education" className="section">
       <div className="container-pro">
-        <h2 className="section-title">Education</h2>
-        <p className="section-subtitle">Academic background and qualifications.</p>
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
+        <SectionHeader eyebrow="Background" title="Education" subtitle="Academic background and qualifications." />
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
           {education.map((e) => (
             <article
               key={e.title + e.institution}
