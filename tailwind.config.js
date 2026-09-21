@@ -9,6 +9,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       colors: {
         brand: {
@@ -25,7 +26,8 @@ export default {
         },
       },
       boxShadow: {
-        soft: '0 10px 30px rgba(2,6,23,0.25)',
+        soft: '0 10px 30px rgba(2,6,23,0.12)',
+        glow: '0 8px 30px -6px rgba(99,102,241,0.5)',
       },
     },
   },

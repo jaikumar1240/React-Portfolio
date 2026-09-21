@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { gsap, ScrollTrigger, prefersReducedMotion } from '../lib/gsap'
+import SectionHeader from './SectionHeader.jsx'
 
 const skills = [
   { name: 'React.js', level: 92 },
@@ -90,9 +91,8 @@ export default function Skills() {
   return (
     <section id="skills" className="section">
       <div className="container-pro">
-        <h2 className="section-title">Skills</h2>
-        <p className="section-subtitle">Core technologies and tools I use to craft robust web applications.</p>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <SectionHeader eyebrow="Toolbox" title="Skills" subtitle="Core technologies and tools I use to craft robust web applications." />
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {skills.map(({ name, level }) => (
             <div
               key={name}
@@ -120,6 +120,18 @@ export default function Skills() {
                 <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-[radial-gradient(60%_60%_at_20%_50%,rgba(255,255,255,.15),transparent),radial-gradient(40%_40%_at_80%_50%,rgba(255,255,255,.08),transparent)]" />
               </div>
             </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Infinite scrolling tech ticker */}
+      <div className="mt-12 relative overflow-hidden mask-fade-x py-4 border-y border-slate-900/5 dark:border-white/10">
+        <div className="flex w-max animate-marquee gap-10 pr-10">
+          {[...skills, ...skills].map(({ name }, i) => (
+            <span key={name + i} className="text-lg font-semibold text-slate-400 dark:text-slate-500 whitespace-nowrap flex items-center gap-10">
+              {name}
+              <span className="text-brand-500/60">◆</span>
+            </span>
           ))}
         </div>
       </div>
