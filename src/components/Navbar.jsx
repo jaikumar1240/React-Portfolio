@@ -113,11 +113,13 @@ export default function Navbar() {
               className="h-9 w-9 grid place-items-center rounded-xl transition-colors bg-slate-900/5 ring-1 ring-slate-900/10 text-slate-700 hover:text-slate-900 dark:bg-white/5 dark:ring-white/10 dark:text-white/80 dark:hover:text-white"
               onClick={toggleTheme}
             >
-              <svg viewBox="0 0 24 24" className="h-5 w-5 block dark:hidden" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25M12 18.75V21M21 12h-2.25M5.25 12H3m13.364 6.364-1.591-1.591M7.227 7.227 5.636 5.636m12.728 0-1.591 1.591M7.227 16.773l-1.591 1.591M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0z" />
-              </svg>
-              <svg viewBox="0 0 24 24" className="h-5 w-5 hidden dark:block" fill="currentColor" aria-hidden>
+              {/* Moon shown in light mode (click → switch to dark) */}
+              <svg viewBox="0 0 24 24" className="h-5 w-5 block dark:hidden" fill="currentColor" aria-hidden>
                 <path d="M21.64 13a1 1 0 0 0-1.05-.14 8 8 0 1 1-9.45-9.45A1 1 0 0 0 11 2a10 10 0 1 0 10.64 10.64 1 1 0 0 0 0-.28z" />
+              </svg>
+              {/* Sun shown in dark mode (click → switch to light) */}
+              <svg viewBox="0 0 24 24" className="h-5 w-5 hidden dark:block" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25M12 18.75V21M21 12h-2.25M5.25 12H3m13.364 6.364-1.591-1.591M7.227 7.227 5.636 5.636m12.728 0-1.591 1.591M7.227 16.773l-1.591 1.591M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0z" />
               </svg>
             </button>
 
