@@ -16,7 +16,7 @@ const projects = [
     repo: 'https://github.com/jaikumar1240/RealTime-Weather',
     // demo: 'https://your-live-demo-url.com',   // ← add a live URL to show a "Live Demo" button
     image: weatherImg,
-    accent: 'from-cyan-500/50 to-blue-600/50',
+    accent: 'from-brand-500/45 to-black/60',
   },
   {
     title: 'Expense Tracker',
@@ -27,7 +27,7 @@ const projects = [
     repo: 'https://github.com/jaikumar1240/Expense-tracker-React',
     // demo: 'https://your-live-demo-url.com',
     image: expenseImg,
-    accent: 'from-brand-500/50 to-fuchsia-600/50',
+    accent: 'from-brand-600/45 to-black/60',
   },
   {
     title: 'Shopping App',
@@ -38,7 +38,7 @@ const projects = [
     repo: 'https://github.com/jaikumar1240/Shopping-App',
     // demo: 'https://your-live-demo-url.com',
     image: shoppingImg,
-    accent: 'from-fuchsia-500/50 to-rose-600/50',
+    accent: 'from-brand-700/45 to-black/60',
   },
   {
     title: 'Interactive Resume',
@@ -49,7 +49,7 @@ const projects = [
     repo: 'https://github.com/jaikumar1240',
     demo: 'https://jai-resume.web.app',
     image: resumeImg,
-    accent: 'from-indigo-500/50 to-emerald-500/50',
+    accent: 'from-brand-500/45 to-black/60',
   },
 ]
 

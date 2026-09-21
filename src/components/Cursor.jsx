@@ -37,8 +37,8 @@ export default function Cursor() {
     const setHover = (active) => {
       gsap.to(ring, {
         scale: active ? 1.8 : 1,
-        backgroundColor: active ? 'rgba(99,102,241,0.15)' : 'rgba(99,102,241,0)',
-        borderColor: active ? 'rgba(99,102,241,0.9)' : 'rgba(148,163,184,0.6)',
+        backgroundColor: active ? 'rgba(246,57,42,0.15)' : 'rgba(246,57,42,0)',
+        borderColor: active ? 'rgba(246,57,42,0.9)' : 'rgba(148,163,184,0.6)',
         duration: 0.25,
       })
       gsap.to(dot, { scale: active ? 0.5 : 1, duration: 0.25 })

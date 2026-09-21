@@ -78,7 +78,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div ref={barRef} className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-500 via-fuchsia-500 to-cyan-400 z-[60]" />
+      <div ref={barRef} className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-600 via-brand-500 to-brand-300 z-[60]" />
       <header ref={headerRef} className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 bg-white/85 border-b border-slate-900/10 dark:supports-[backdrop-filter]:bg-slate-950/60 dark:bg-slate-950/85 dark:border-white/10">
         <div className="container-pro flex items-center justify-between py-4">
           <a href="#profile" onClick={(e) => go(e, 'profile')} className="font-extrabold text-xl tracking-tight text-slate-900 dark:text-white">

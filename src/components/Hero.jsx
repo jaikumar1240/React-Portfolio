@@ -177,7 +177,7 @@ export default function Hero() {
 
         <div className="order-1 md:order-2 justify-self-center md:justify-self-end relative">
           {/* Glowing aurora behind the portrait */}
-          <div ref={parallaxRef} className="absolute -inset-8 -z-10 blur-3xl opacity-40 bg-gradient-to-br from-brand-600 via-fuchsia-600 to-cyan-500 rounded-[40%] animate-float" />
+          <div ref={parallaxRef} className="absolute -inset-8 -z-10 blur-3xl opacity-40 bg-gradient-to-br from-brand-500 via-brand-600 to-brand-900 rounded-[40%] animate-float" />
           {/* Rotating dashed ring */}
           <div className="absolute -inset-4 rounded-[36px] border border-dashed border-brand-500/30 dark:border-white/15" style={{ animation: 'spin 24s linear infinite' }} />
           <div ref={badgeRef} className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden ring-1 ring-white/20 shadow-soft bg-slate-800 will-change-transform">

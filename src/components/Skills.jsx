@@ -71,7 +71,7 @@ export default function Skills() {
           {categories.map((cat) => (
             <div key={cat.name} data-skill-cat className="card group p-6 will-change-transform">
               <div className="flex items-center gap-3">
-                <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-brand-500 to-fuchsia-500 text-white ring-1 ring-white/20 shadow-glow">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 text-white ring-1 ring-white/20 shadow-glow">
                   <Icon name={cat.icon} className="h-5 w-5" />
                 </span>
                 <h3 className="font-semibold text-slate-900 dark:text-white">{cat.name}</h3>

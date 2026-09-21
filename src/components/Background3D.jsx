@@ -30,9 +30,9 @@ export default function Background3D() {
 
     // ---- Palette (updated on theme change) ------------------------------
     const palette = {
-      a: new THREE.Color('#6366f1'), // brand indigo
-      b: new THREE.Color('#d946ef'), // fuchsia
-      c: new THREE.Color('#22d3ee'), // cyan
+      a: new THREE.Color('#f6392a'), // brand red
+      b: new THREE.Color('#ff8a7a'), // coral
+      c: new THREE.Color('#ffffff'), // white spark
     }
 
     // ---- Particle field --------------------------------------------------

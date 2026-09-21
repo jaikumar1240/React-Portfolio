@@ -39,7 +39,7 @@ export default function SectionHeader({ eyebrow, title, subtitle, align = 'left'
       {eyebrow && <span data-reveal className="eyebrow mb-3">{eyebrow}</span>}
       <h2 data-reveal className="section-title relative inline-block w-fit">
         {title}
-        <span data-underline className="absolute -bottom-1.5 left-0 h-1 w-full rounded-full bg-gradient-to-r from-brand-500 via-fuchsia-500 to-cyan-400" />
+        <span data-underline className="absolute -bottom-1.5 left-0 h-1 w-full rounded-full bg-gradient-to-r from-brand-600 via-brand-500 to-brand-300" />
       </h2>
       {subtitle && <p data-reveal className={`section-subtitle ${align === 'center' ? 'mx-auto' : ''}`}>{subtitle}</p>}
     </div>

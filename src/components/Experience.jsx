@@ -126,7 +126,7 @@ export default function Experience() {
         <div className="relative mt-12 pl-8 sm:pl-12">
           {/* Track + animated fill */}
           <div className="absolute left-[7px] sm:left-[11px] top-2 bottom-2 w-px bg-slate-900/10 dark:bg-white/10" />
-          <div ref={lineRef} className="absolute left-[7px] sm:left-[11px] top-2 bottom-2 w-px bg-gradient-to-b from-brand-500 via-fuchsia-500 to-cyan-400" />
+          <div ref={lineRef} className="absolute left-[7px] sm:left-[11px] top-2 bottom-2 w-px bg-gradient-to-b from-brand-600 via-brand-500 to-brand-300" />
 
           <div className="space-y-8">
             {experiences.map((exp) => (
@@ -134,7 +134,7 @@ export default function Experience() {
                 {/* Node */}
                 <span
                   data-exp-dot
-                  className="absolute -left-8 sm:-left-12 top-1.5 grid h-4 w-4 place-items-center rounded-full bg-gradient-to-br from-brand-500 to-fuchsia-500 ring-4 ring-white dark:ring-slate-950"
+                  className="absolute -left-8 sm:-left-12 top-1.5 grid h-4 w-4 place-items-center rounded-full bg-gradient-to-br from-brand-500 to-brand-700 ring-4 ring-white dark:ring-slate-950"
                 />
                 <article data-exp-card className="card p-6 will-change-transform">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
