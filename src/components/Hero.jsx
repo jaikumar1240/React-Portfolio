@@ -3,7 +3,7 @@ import { gsap, prefersReducedMotion } from '../lib/gsap'
 import { scrollToTarget } from '../lib/smoothScroll'
 import profileImg from '../assets/propic_new.jpg'
 
-const ROLES = ['Senior Software Engineer', 'Frontend Specialist', 'SaaS Product Builder', 'React & Angular Dev']
+const ROLES = ['Senior Software Engineer', 'Full-Stack Engineer', 'React & Angular Dev', 'Electron & SaaS Builder']
 
 const STATS = [
   { value: 5, suffix: '+', label: 'Years experience' },
@@ -189,13 +189,6 @@ export default function Hero() {
               decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-brand-900/30 via-transparent to-white/10 mix-blend-overlay" />
-          </div>
-          {/* Floating tech chips */}
-          <div className="hidden sm:block absolute -left-6 top-8 rounded-xl bg-white/80 dark:bg-slate-900/80 backdrop-blur px-3 py-2 text-sm font-semibold shadow-soft ring-1 ring-slate-900/5 dark:ring-white/10 animate-float" style={{ animationDelay: '0.6s' }}>
-            ⚛️ React
-          </div>
-          <div className="hidden sm:block absolute -right-4 bottom-10 rounded-xl bg-white/80 dark:bg-slate-900/80 backdrop-blur px-3 py-2 text-sm font-semibold shadow-soft ring-1 ring-slate-900/5 dark:ring-white/10 animate-float" style={{ animationDelay: '1.2s' }}>
-            🅰️ Angular
           </div>
         </div>
       </div>

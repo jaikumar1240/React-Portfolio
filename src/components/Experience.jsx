@@ -5,9 +5,22 @@ import SectionHeader from './SectionHeader.jsx'
 const experiences = [
   {
     role: 'Senior Software Engineer',
+    company: 'GlobalLogic — on-site at Adobe',
+    location: 'Noida, India',
+    period: '06/2026 — Present',
+    points: [
+      "Full-stack engineer on RoboHelp, Adobe's Electron-based desktop authoring and help-publishing product, owning both frontend and backend components.",
+      'Led the upgrade of the RoboHelp desktop app from Electron 12 to Electron 44, resolving breaking API and Node.js compatibility changes across the upgrade path.',
+      'Diagnosed and fixed a wide range of bugs across publishing, licensing, and content-authoring workflows, improving overall application stability.',
+      'Partnered directly with Adobe engineering stakeholders on release planning and upgrade risk mitigation for a mission-critical desktop product.',
+      'Modernized build and CI tooling to keep pace with the upgraded Electron runtime and its Node.js requirements.',
+    ],
+  },
+  {
+    role: 'Senior Software Engineer',
     company: 'SalaryBox',
     location: 'Gurgaon, India',
-    period: '11/2025 — Present',
+    period: '11/2025 — 04/2026',
     points: [
       'Led frontend enhancements for a payroll & HR SaaS platform used by hundreds of businesses.',
       'Built a User Impersonation system, reducing support resolution time by 30%.',
@@ -23,7 +36,7 @@ const experiences = [
     location: 'Noida, India',
     period: '05/2023 — 11/2025',
     points: [
-      'Developed the frontend of Monotype Foundry Platform, increasing user engagement by 40%.',
+      'Developed scalable frontend for the Monotype Foundry Platform, increasing engagement by 40%.',
       'Designed and executed unit tests with Mocha, Chai, and Karma; improved coverage from 60% to 87% in 3 months.',
       'Led Agile ceremonies, resulting in a 15% boost in team productivity and delivery speed.',
       'Streamlined defect tracking with JIRA and Confluence, reducing resolution time by 25%.',

@@ -35,7 +35,7 @@ export default function SectionHeader({ eyebrow, title, subtitle, align = 'left'
   }, [align])
 
   return (
-    <div ref={ref} className={align === 'center' ? 'text-center flex flex-col items-center' : ''}>
+    <div ref={ref} className={`flex flex-col ${align === 'center' ? 'text-center items-center' : 'items-start'}`}>
       {eyebrow && <span data-reveal className="eyebrow mb-3">{eyebrow}</span>}
       <h2 data-reveal className="section-title relative inline-block w-fit">
         {title}
